@@ -21,7 +21,7 @@ class ClassificadorCLONALG:
             flores_da_classe = X_train[y_train == cls].values
             
             # Chama o SEU motor para achar o anticorpo perfeito para essa flor
-            melhor_anticorpo = treinar_clonalg(flores_da_classe, num_geracoes=50, tam_populacao=30, num_clones = 5)
+            melhor_anticorpo = treinar_clonalg(flores_da_classe, num_geracoes=50, tam_populacao=50, num_clones = 5)
             
             # Salva o anticorpo na memória
             self.memoria_imunologica[cls] = melhor_anticorpo
@@ -64,7 +64,7 @@ def preparar_dados(df):
     X = df.drop('target', axis=1) 
     y = df['target']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, shuffle=True)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
     
     return X_train, X_test, y_train, y_test
 
