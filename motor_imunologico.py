@@ -42,7 +42,7 @@ def hipermutacao(anticorpo, afinidade, taxa_base=1.0):
         
     return anticorpo_mutado
 
-def treinar_clonalg(antigenos_treino, num_geracoes=50, tam_populacao=50, num_clones=5):
+def treinar_clonalg(antigenos_treino, num_geracoes, tam_populacao, num_clones):
     """Loop Principal do Motor Imunológico."""
     anticorpos = inicializar_anticorpos(tam_populacao, num_medidas=len(antigenos_treino[0]))
     
@@ -63,7 +63,6 @@ def treinar_clonalg(antigenos_treino, num_geracoes=50, tam_populacao=50, num_clo
                     clone_mutado = hipermutacao(ant_campeao, af_campeao)
                     nova_populacao.append(clone_mutado)
                     
-        # Passo 5 CORRIGIDO: O corte de sobrevivência usa a Afinidade Global (o centro)
         afinidades_finais = [calcular_afinidade_global(antigenos_treino, ant) for ant in nova_populacao]
         indices_sobreviventes = np.argsort(afinidades_finais)[-tam_populacao:]
         
