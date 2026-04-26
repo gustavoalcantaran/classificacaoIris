@@ -14,6 +14,7 @@ def calcular_afinidade(antigeno, anticorpo):
     Quanto menor a distância (mais parecidos), maior a afinidade.
     """
     distancia = np.linalg.norm(np.array(antigeno) - np.array(anticorpo))
+    # distancia = sqrt((a1 - b1)^2) + (a2 - b2)^2 + ... + (a4 - b4)^2)
     return 1.0 / (1.0 + distancia)
 
 def calcular_afinidade_global(antigenos, anticorpo):

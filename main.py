@@ -62,7 +62,7 @@ class ClassificadorCLONALG:
         return y_pred
 
 
-def experimento_acuracia_por_geracao(X_train, X_test, y_train, y_test, num_geracoes=50, tam_populacao=50):
+def experimento_acuracia_por_geracao(X_train, X_test, y_train, y_test, num_geracoes=50, tam_populacao=40):
     """
     Experimento 1: Treina o modelo passo a passo e exibe como a acurácia de teste
     varia no decorrer das gerações.
