@@ -157,7 +157,7 @@ def main():
 
     # Divisão treino e teste (30% para teste)
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.3, shuffle=True, random_state=42
+        X, y, test_size=0.3, shuffle=True, random_state=42, stratify=y
     )
 
     # Executa os dois experimentos solicitados pelo professor
